@@ -32,8 +32,8 @@ export default function NavBar() {
                 <Card className="bg-blue-300 w-fit">
                   <ul>
                     {menuList.map((menu, i) => (
-                      <div className="flex">
-                        <li key={i} className="py-1 text-lg ">
+                      <div className="flex" key={i}>
+                        <li className="py-1 text-lg ">
                           <Link href={menu[1]}>{menu[0]}</Link>
                         </li>
                         <Icon icon={IcRoundArrowForwardIos} size="xs" />
