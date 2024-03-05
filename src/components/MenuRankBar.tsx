@@ -3,6 +3,8 @@ import { History } from "@/types";
 import { useHistory } from "@/hooks/useHistory";
 import { useDashboard } from "@/hooks/useDashboard";
 import MonthSelection from "./MonthSelection";
+import { caveat } from "./NavBar";
+import classNames from "classnames";
 
 export default function MenuRankBar({
   histories,
@@ -36,7 +38,9 @@ export default function MenuRankBar({
 
   return (
     <Card className="mx-4 w-auto">
-      <p className="text-lg text-tremor-content-strong">Menu Rank by {by}</p>
+      <p className={classNames("text-xl", `${caveat.className}`)}>
+        Menu Rank by {by}
+      </p>
       <MonthSelection
         selections={selections}
         selectedDate={selectedDate}

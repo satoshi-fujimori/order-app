@@ -1,9 +1,15 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { M_PLUS_1, Caveat } from "next/font/google";
 import "./globals.css";
 import { ModalProvider } from "@/providers/ModalProvider";
 
 const inter = Inter({ subsets: ["latin"] });
+const fnt_Ja = M_PLUS_1({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-Ja",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +23,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={fnt_Ja.className}>
         <ModalProvider>{children}</ModalProvider>
       </body>
     </html>

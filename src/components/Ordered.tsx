@@ -8,7 +8,6 @@ import { postOrder } from "@/libs/actions";
 import DialogBox from "./DialogBox";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { list } from "postcss";
 
 export default function Ordered({
   itemList,
@@ -31,9 +30,9 @@ export default function Ordered({
   const router = useRouter();
 
   return (
-    <div className="flex justify-between items-center fixed left-0 bottom-0 p-2 bg-green-600 w-screen shadow-lg min-h-20">
+    <div className="flex justify-between items-center fixed left-0 bottom-0 p-2 bg-tremor-brand-subtle w-screen shadow-lg min-h-20">
       <div>
-        <p className="text-white font-mono flex items-center gap-x-2">
+        <p className="text-white flex items-center gap-x-2">
           ちゅうもんしたかず　{totalAmount}
           <button
             onClick={() =>
@@ -44,17 +43,17 @@ export default function Ordered({
             <IcRoundArrowForwardIos />
           </button>
         </p>
-        <p className="text-white font-mono">りょうきん　￥{totalePrice}</p>
+        <p className="text-white">りょうきん　￥{totalePrice}</p>
       </div>
       <div>
         <button
-          className="bg-white text-green-600 p-2 rounded-lg mx-4 font-mono font-bold"
+          className="bg-white p-2 rounded-lg mx-4 "
           onClick={() =>
             openModal(
               <div>
                 <OrderDetails itemList={itemList} />
                 <button
-                  className="bg-white text-green-600 p-2 rounded-lg mx-4 font-mono font-bold w-auto"
+                  className="bg-white p-2 rounded-lg mx-4 w-auto"
                   onClick={() => {
                     setIsDialogOpen(true);
                   }}

@@ -1,7 +1,9 @@
 import type { Item } from "@/types";
 import Image from "next/image";
-import { IcTwotoneArrowCircleUp } from "./Icons/IcTwotoneArrowCircleUp";
-import { IcTwotoneArrowCircleDown } from "./Icons/IcTwotoneArrowCircleDown";
+import {
+  ArrowDownCircleIcon as ArrowDownOutline,
+  ArrowUpCircleIcon as ArrowUpOutline,
+} from "@heroicons/react/24/outline";
 
 export default function ItemCard({
   item,
@@ -16,15 +18,21 @@ export default function ItemCard({
         <Image src={item.url} alt="" fill className="rounded-md" />
       </div>
       <div>
-        <p className="text-sm font-semibold font-mono">{item.name}</p>
+        <p className="text-sm">{item.name}</p>
         <div className="flex justify-between">
-          <p className="text-sm font-mono">￥{item.unitPrice}</p>
+          <p className="text-sm">￥{item.unitPrice}</p>
           <div className="flex gap-x-1">
-            <IcTwotoneArrowCircleDown
-              onClick={() => handleChangeAmount({ type: "minus", id: item.id })}
-            />
-            <p className="font-mono font-bold">{item.amount}</p>
-            <IcTwotoneArrowCircleUp
+            {item.amount !== 0 && (
+              <ArrowDownOutline
+                className="w-5"
+                onClick={() =>
+                  handleChangeAmount({ type: "minus", id: item.id })
+                }
+              />
+            )}
+            <p>{item.amount}</p>
+            <ArrowUpOutline
+              className="w-5"
               onClick={() => handleChangeAmount({ type: "plus", id: item.id })}
             />
           </div>

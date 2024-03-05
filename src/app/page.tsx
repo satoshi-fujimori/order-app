@@ -1,6 +1,7 @@
 import MenuList from "@/components/MenuList";
 import { Item, FetchedItem } from "@/types";
 import { getAllMenu } from "@/libs/actions";
+import OrderNavBar from "@/components/OrderNavBar";
 
 export const dynamic = "force-dynamic";
 
@@ -25,8 +26,11 @@ export default async function Main() {
   }
 
   return (
-    <div className="flex flex-col items-center">
-      <MenuList list={list} />
-    </div>
+    <>
+      <OrderNavBar />
+      <div className="flex flex-col items-center">
+        <MenuList list={list} />
+      </div>
+    </>
   );
 }

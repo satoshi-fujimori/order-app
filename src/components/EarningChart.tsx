@@ -5,6 +5,8 @@ import { useDashboard } from "@/hooks/useDashboard";
 import type { History } from "@/types";
 import { useHistory } from "@/hooks/useHistory";
 import MonthSelection from "./MonthSelection";
+import { caveat } from "./NavBar";
+import classNames from "classnames";
 
 export default function EarningChart({
   histories = [],
@@ -16,7 +18,9 @@ export default function EarningChart({
   const { EarningList } = useDashboard(filteredHistories);
   return (
     <Card className="mx-4 w-auto sm:col-span-2">
-      <p className="text-lg">Earning Chart</p>
+      <p className={classNames("text-xl", `${caveat.className}`)}>
+        Earning Chart
+      </p>
       <MonthSelection
         selectedDate={selectedDate}
         handleChangeDate={handleChangeDate}
